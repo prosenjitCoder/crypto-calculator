@@ -336,6 +336,9 @@ textarea.input3 {
   .loss_equal {
     margin-left: 15px !important;
   }
+  .sub-title {
+    font-size: 21px !important;
+  }
 }
 
 /*------------------------------------------------------------------
