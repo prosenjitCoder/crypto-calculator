@@ -112,7 +112,7 @@ form.addEventListener("submit", (e) => {
       <span class="l_entry green">Profit<span class="profit_equal" style="margin-left:110px;">=</span></span>
       <span class="l_price"><span class="green" style="position:relative;">$${profitAmount.toFixed(
         2
-      )} (Sell &rarr; $${sellingPriceOnProfit.toFixed(
+      )} (Sell <span style="position:relative;top:-1px;">&rarr;</span> $${sellingPriceOnProfit.toFixed(
         5
       )}) (${sellingPercentage}%) <span style="position:absolute;top:-12px;right:-7%;font-size:25px">&uarr;</span></span></span><br>
 
@@ -125,7 +125,7 @@ form.addEventListener("submit", (e) => {
       <span class="l_entry red">Loss<span class="loss_equal" style="margin-left:117px;">=</span></span>
       <span class="l_price"><span class="red" style="position:relative;">$${lossAmount.toFixed(
         2
-      )} (Sell &rarr; $${sellingPriceOnLoss.toFixed(
+      )} (Sell <span style="position:relative;top:-1px;">&rarr;</span> $${sellingPriceOnLoss.toFixed(
         5
       )}) (${sellingPercentage}%) <span style="position:absolute;top:-12px;right:-7%;font-size:25px">&darr;</span></span></span><br>
     </div>
