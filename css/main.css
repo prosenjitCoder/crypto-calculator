@@ -714,4 +714,8 @@ textarea.input3 {
 .wrap-input3 {
   margin-left: 15px;
 }
-.sub-title
+.btn-alignment {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
