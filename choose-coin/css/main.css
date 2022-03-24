@@ -336,9 +336,6 @@ textarea.input3 {
   .loss_equal {
     margin-left: 15px !important;
   }
-  .sub-title {
-    font-size: 21px !important;
-  }
 }
 
 /*------------------------------------------------------------------
@@ -692,7 +689,6 @@ textarea.input3 {
   background: white;
   padding: 8px;
   border-radius: 5px;
-  text-transform: uppercase;
 }
 
 #result {
@@ -718,6 +714,12 @@ textarea.input3 {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+.green {
+  color: green;
+}
+.red {
+  color: #c80000;
 }
 
 .button-wrapper {
