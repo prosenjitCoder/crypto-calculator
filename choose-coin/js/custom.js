@@ -23,7 +23,7 @@ form.addEventListener("submit", (e) => {
     priceAtDownPercentage = (
       highPrice -
       (highPrice - lowPrice) * (percentageDown / 100)
-    ).toFixed(2);
+    ).toFixed(5);
 
     if (percentageDown) {
       content = `<div class="bg-result">
