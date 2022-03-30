@@ -19,6 +19,7 @@ form.addEventListener("submit", (e) => {
     let percentageUp = (takeProfit * 100) / entryPrice - 100;
     let percentageDownLossAmount = positionAmount - stopLossAmount;
     let percentageUpProfitAmount = tokenQuantity * takeProfit - positionAmount;
+    let oneToOnePrice = entryPrice + (entryPrice - stopLoss);
     let ratio = parseFloat(
       (percentageUpProfitAmount / percentageDownLossAmount).toFixed(2)
     );
@@ -47,6 +48,11 @@ form.addEventListener("submit", (e) => {
   
       <span class="l_entry">Risk : Reward<span style="margin-left:13px;">=</span></span>
       <span class="l_price"><span class="riskReward">${riskRewardRadio}</span></span><br>
+
+      <span class="l_entry">(1 : 1) Profit at<span style="margin-left:16px;">=</span></span>
+      <span class="l_price"><span class="riskReward">$${oneToOnePrice.toFixed(
+        5
+      )}</span></span><br>
       `;
 
     if (ratio >= 1.5) {
