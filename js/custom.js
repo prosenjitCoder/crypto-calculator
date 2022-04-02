@@ -6,12 +6,25 @@ form.addEventListener("submit", (e) => {
 
   let riskAmount = parseFloat(document.querySelector("#riskAmount").value);
   let entryPrice = parseFloat(document.querySelector("#entryPrice").value);
-  let stopLoss = parseFloat(document.querySelector("#stopLoss").value);
-  let takeProfit = parseFloat(document.querySelector("#takeProfit").value);
+  let swingLowPrice = parseFloat(
+    document.querySelector("#swingLowPrice").value
+  );
+  let atrValue = parseFloat(document.querySelector("#atrValue").value);
+  let rewardRisk = parseFloat(document.querySelector("#rewardRisk").value);
 
-  if (riskAmount && entryPrice && stopLoss && takeProfit) {
+  if (!riskAmount) {
+    riskAmount = 5;
+  }
+
+  if (!rewardRisk) {
+    rewardRisk = 1.5;
+  }
+
+  if (riskAmount && entryPrice && swingLowPrice && atrValue && rewardRisk) {
     // Formula
+    let stopLoss = swingLowPrice - atrValue;
     let SLamount = entryPrice - stopLoss;
+    let takeProfit = entryPrice + SLamount * rewardRisk;
     let tokenQuantity = riskAmount / SLamount;
     let positionAmount = tokenQuantity * entryPrice; // Position size
     let stopLossAmount = tokenQuantity * stopLoss;
@@ -20,46 +33,43 @@ form.addEventListener("submit", (e) => {
     let percentageDownLossAmount = positionAmount - stopLossAmount;
     let percentageUpProfitAmount = tokenQuantity * takeProfit - positionAmount;
     let oneToOnePrice = entryPrice + (entryPrice - stopLoss);
-    let ratio = parseFloat(
-      (percentageUpProfitAmount / percentageDownLossAmount).toFixed(2)
-    );
-    let riskRewardRadio = `1 : ${ratio}`;
 
     // Showing results
     showResult.innerHTML = `<div class="bg-result">
-      <span class="l_entry">Position Size<span style="margin-left:18px;">=</span></span>
+      <span class="l_entry">Position Size<span style="margin-left:47px;">=</span></span>
       <span class="l_price"><span class="">$${positionAmount.toFixed(
         2
       )}</span></span><br>
 
-      <span class="l_entry">Stop Loss Hit<span style="margin-left:15px;">=</span></span>
+      <span class="l_entry">Stop Loss Price<span style="margin-left:26px;">=</span></span>
+      <span class="l_price"><span class="red">$${stopLoss.toFixed(
+        5
+      )}</span></span><br>
+
+      <span class="l_entry">Take Profit Price<span style="margin-left:18px;">=</span></span>
+      <span class="l_price"><span class="green">$${takeProfit.toFixed(
+        5
+      )}</span></span><br>
+
+      <span class="l_entry">Stop Loss Hit<span style="margin-left:44px;">=</span></span>
       <span class="l_price"><span class="red" style="position:relative;">$${percentageDownLossAmount.toFixed(
         2
       )} (${percentageDown.toFixed(
       2
     )}%) <span style="position:absolute;top:-10px;right:-12%;font-size:21px">&darr;</span></span></span><br>
 
-    <span class="l_entry">Take Profit Hit<span style="margin-left:7px;">=</span></span>
+    <span class="l_entry">Take Profit Hit<span style="margin-left:36px;">=</span></span>
       <span class="l_price"><span class="green" style="position:relative;">$${percentageUpProfitAmount.toFixed(
         2
       )} (${percentageUp.toFixed(
       2
     )}%) <span style="position:absolute;top:-8px;right:-12%;font-size:21px">&uarr;</span></span></span><br>
-  
-      <span class="l_entry">Risk : Reward<span style="margin-left:13px;">=</span></span>
-      <span class="l_price"><span class="riskReward">${riskRewardRadio}</span></span><br>
 
-      <span class="l_entry">(1 : 1) Profit at<span style="margin-left:16px;">=</span></span>
+      <span class="l_entry">(1 : 1) Profit at<span style="margin-left:45px;">=</span></span>
       <span class="l_price"><span class="riskReward">$${oneToOnePrice.toFixed(
         5
       )}</span></span><br>
       `;
-
-    if (ratio >= 1.5) {
-      document.querySelector(".riskReward").classList.add("green");
-    } else {
-      document.querySelector(".riskReward").classList.add("red");
-    }
   } else {
     showResult.innerHTML = `<div class="bg-result">
       <span class="normal">Missing Inputs</span>

@@ -51,23 +51,13 @@
             </div>
             <div class="row">
               <div class="col-sm-6">
-                <label for="riskAmount">Risk Amount ($)<span class="text-danger"> *</span></label>
-                <div class="wrap-input3 validate-input" data-validate="Risk amount is required">
+                <label for="riskAmount">Risk Amount ($)</label>
+                <div class="wrap-input3">
                   <input class="input3" type="number" step="0.001" name="riskAmount"
-                    placeholder="Risk amount ok to loss" autocomplete="off" id="riskAmount" />
+                    placeholder="Risk amount default $5" autocomplete="off" id="riskAmount" />
                   <span class="focus-input3"></span>
                 </div>
               </div>
-              <div class="col-sm-6">
-                <label for="takeProfit">Take Profit Price ($)<span class="text-danger"> *</span></label>
-                <div class="wrap-input3 validate-input" data-validate="Take profit price is required">
-                  <input class="input3" type="number" step="0.000000001" name="takeProfit"
-                    placeholder="Price to take the profit" autocomplete="off" id="takeProfit" />
-                  <span class="focus-input3"></span>
-                </div>
-              </div>
-            </div>
-            <div class="row">
               <div class="col-sm-6">
                 <label for="entryPrice">Entry Price ($)<span class="text-danger"> *</span></label>
                 <div class="wrap-input3 validate-input" data-validate="Entry price is required">
@@ -76,11 +66,31 @@
                   <span class="focus-input3"></span>
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-sm-6">
-                <label for="stopLoss">Stop Loss Price ($)<span class="text-danger"> *</span></label>
-                <div class="wrap-input3 validate-input" data-validate="Stop loss price is required">
-                  <input class="input3" type="number" step="0.000000001" name="stopLoss"
-                    placeholder="Price to exit from the trade" autocomplete="off" id="stopLoss" />
+                <label for="swingLowPrice">Swing Low Price ($)<span class="text-danger"> *</span></label>
+                <div class="wrap-input3 validate-input" data-validate="Swing low price is required">
+                  <input class="input3" type="number" step="0.000000001" name="swingLowPrice"
+                    placeholder="Price for substracting ATR" autocomplete="off" id="swingLowPrice" />
+                  <span class="focus-input3"></span>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label for="atrValue">ATR Value<span class="text-danger"> *</span></label>
+                <div class="wrap-input3 validate-input" data-validate="ATR value is required">
+                  <input class="input3" type="number" step="0.000000001" name="atrValue"
+                    placeholder="Market volatility value" autocomplete="off" id="atrValue" />
+                  <span class="focus-input3"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <label for="rewardRisk">Reward : Risk</label>
+                <div class="wrap-input3">
+                  <input class="input3" type="number" step="0.001" name="rewardRisk"
+                    placeholder="Reward against risk default 1.5" autocomplete="off" id="rewardRisk" />
                   <span class="focus-input3"></span>
                 </div>
               </div>

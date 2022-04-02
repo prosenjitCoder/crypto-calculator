@@ -35,15 +35,15 @@
 
   /*==================================================================
     [ Validate ]*/
-  var riskAmount = $('.validate-input input[name="riskAmount"]');
   var entryPrice = $('.validate-input input[name="entryPrice"]');
-  var stopLoss = $('.validate-input input[name="stopLoss"]');
+  var swingLowPrice = $('.validate-input input[name="swingLowPrice"]');
+  var atrValue = $('.validate-input input[name="atrValue"]');
 
   $(".validate-form").on("submit", function () {
     var check = true;
 
-    if ($(riskAmount).val().trim() == "") {
-      showValidate(riskAmount);
+    if ($(swingLowPrice).val().trim() == "") {
+      showValidate(swingLowPrice);
       check = false;
     }
 
@@ -52,8 +52,8 @@
       check = false;
     }
 
-    if ($(stopLoss).val().trim() == "") {
-      showValidate(stopLoss);
+    if ($(atrValue).val().trim() == "") {
+      showValidate(atrValue);
       check = false;
     }
 
