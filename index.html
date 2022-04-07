@@ -69,10 +69,10 @@
             </div>
             <div class="row">
               <div class="col-sm-6">
-                <label for="swingLowPrice">Swing Low Price ($)<span class="text-danger"> *</span></label>
-                <div class="wrap-input3 validate-input" data-validate="Swing low price is required">
-                  <input class="input3" type="number" step="0.000000001" name="swingLowPrice"
-                    placeholder="Price for substracting ATR" autocomplete="off" id="swingLowPrice" />
+                <label for="swingPrice">Swing Price ($)<span class="text-danger"> *</span></label>
+                <div class="wrap-input3 validate-input" data-validate="Swing low / high price is required">
+                  <input class="input3" type="number" step="0.000000001" name="swingPrice"
+                    placeholder="Swing low / high price" autocomplete="off" id="swingPrice" />
                   <span class="focus-input3"></span>
                 </div>
               </div>
@@ -99,6 +99,16 @@
             <div class="btn-alignment">
               <div class="container-contact3-form-btn">
                 <button class="contact3-form-btn" id="submit_btn">Submit</button>
+              </div>
+              <div class="radio-wrapper">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="rad_direction" id="long" value="long" checked>
+                  <label class="form-check-label" for="long">Long</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="rad_direction" id="short" value="short">
+                  <label class="form-check-label" for="short">Short</label>
+                </div>
               </div>
             </div>
             <!-- button alignment -->

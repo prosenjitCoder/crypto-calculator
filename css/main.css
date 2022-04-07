@@ -717,11 +717,23 @@ textarea.input3 {
 .btn-alignment {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .button-wrapper {
   margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
+}
+
+.radio-wrapper {
+  margin-left: 15px;
+}
+.radio-wrapper .form-check {
+  margin: 0px;
+  padding: 0px;
+}
+
+.text-center {
+  display: block;
 }
