@@ -14,7 +14,7 @@ form.addEventListener("submit", (e) => {
     .value.toUpperCase();
 
   if (!riskAmount) {
-    riskAmount = 5;
+    riskAmount = 3;
   }
 
   if (!rewardRisk) {
