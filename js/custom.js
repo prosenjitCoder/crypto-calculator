@@ -44,7 +44,7 @@ form.addEventListener("submit", (e) => {
   ) {
     if (direction == "LONG") {
       // Formula
-      let stopLoss = swingPrice - atrValue * 2;
+      let stopLoss = swingPrice - atrValue;
       let SLamount = entryPrice - stopLoss;
       let takeProfit = entryPrice + SLamount * rewardRisk;
       let tokenQuantity = riskAmount / SLamount;
@@ -100,7 +100,7 @@ form.addEventListener("submit", (e) => {
 
     if (direction == "SHORT") {
       // Formula
-      let stopLoss = swingPrice + atrValue * 2;
+      let stopLoss = swingPrice + atrValue;
       let SLamount = stopLoss - entryPrice;
       let takeProfit = entryPrice - SLamount * rewardRisk;
       let tokenQuantity = riskAmount / SLamount;
