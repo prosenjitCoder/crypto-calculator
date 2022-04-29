@@ -737,3 +737,11 @@ textarea.input3 {
 .text-center {
   display: block;
 }
+
+.button-wrapper a {
+  font-size: 13px !important;
+}
+
+.button-wrapper .btn {
+  padding: 0.5rem 0.5rem !important;
+}

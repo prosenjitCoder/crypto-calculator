@@ -721,3 +721,11 @@ textarea.input3 {
   display: flex;
   justify-content: space-between;
 }
+
+.button-wrapper a {
+  font-size: 13px !important;
+}
+
+.button-wrapper .btn {
+  padding: 0.5rem 0.5rem !important;
+}
