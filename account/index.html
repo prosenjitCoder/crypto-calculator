@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>RISK MANAGEMENT CALCULATOR</title>
+  <title>ACCOUNT MANAGEMENT</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--===============================================================================================-->
@@ -28,19 +28,19 @@
     <div class="container-contact3">
       <div class="wrap-contact3">
         <form class="contact3-form validate-form" id="form">
-          <span class="sub-title">Risk Management Calculator</span>
+          <span class="sub-title">ACCOUNT MANAGEMENT</span>
           <div class="button-wrapper">
             <div>
               <button class="btn btn-primary">
-                <a style="color: #fff;" href="https://crypto-calculator-eta.vercel.app/choose-coin/index.html">Choose
-                  coin<i class="fa fa-long-arrow-right" style="position: relative;top: 2px;right: -2px;"></i>
+                <a style="color: #fff;" href="https://crypto-calculator-eta.vercel.app">
+                  <i class="fa fa-long-arrow-left" style="position: relative;top: 0px;left: -2px;"></i> Back to home
                 </a>
               </button>
             </div>
             <div>
               <button class="btn btn-primary">
-                <a style="color: #fff;" href="https://crypto-calculator-eta.vercel.app/account/index.html">Account<i
-                    class="fa fa-long-arrow-right" style="position: relative;top: 2px;right: -2px;"></i>
+                <a style="color: #fff;" href="https://crypto-calculator-eta.vercel.app/choose-coin/index.html">Choose
+                  coin<i class="fa fa-long-arrow-right" style="position: relative;top: 2px;right: -2px;"></i>
                 </a>
               </button>
             </div>
@@ -58,46 +58,54 @@
             </div>
             <div class="row">
               <div class="col-sm-6">
-                <label for="riskAmount">Risk Amount ($)</label>
-                <div class="wrap-input3">
-                  <input class="input3" type="number" step="0.001" name="riskAmount"
-                    placeholder="Risk amount default $5" autocomplete="off" id="riskAmount" />
+                <label for="accountSize">Account Size ($)<span class="text-danger"> *</span></label>
+                <div class="wrap-input3 validate-input" data-validate="Trading account size is required">
+                  <input class="input3" type="number" step="0.0001" name="accountSize"
+                    placeholder="Trading account size" autocomplete="off" id="accountSize" />
                   <span class="focus-input3"></span>
                 </div>
               </div>
               <div class="col-sm-6">
-                <label for="entryPrice">Entry Price ($)<span class="text-danger"> *</span></label>
-                <div class="wrap-input3 validate-input" data-validate="Entry price is required">
-                  <input class="input3" type="number" step="0.000000001" name="entryPrice"
-                    placeholder="Entry price of the trade" autocomplete="off" id="entryPrice" />
+                <label for="risk">Risk (%)<span class="text-danger"> *</span></label>
+                <div class="wrap-input3 validate-input" data-validate="Risk percentage of account size is required">
+                  <input class="input3" type="number" step="0.00001" name="risk"
+                    placeholder="Risk percentage of account" autocomplete="off" id="risk" />
                   <span class="focus-input3"></span>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-6">
-                <label for="swingPrice">Swing Price ($)<span class="text-danger"> *</span></label>
-                <div class="wrap-input3 validate-input" data-validate="Swing low / high price is required">
-                  <input class="input3" type="number" step="0.000000001" name="swingPrice"
-                    placeholder="Swing low / high price" autocomplete="off" id="swingPrice" />
+                <label for="dailyTrade">Daily Trade<span class="text-danger"> *</span></label>
+                <div class="wrap-input3 validate-input" data-validate="Daily trade number is required">
+                  <input class="input3" type="number" step="1" name="dailyTrade" placeholder="Daily trade number"
+                    autocomplete="off" id="dailyTrade" />
                   <span class="focus-input3"></span>
                 </div>
               </div>
               <div class="col-sm-6">
-                <label for="atrValue">ATR Value<span class="text-danger"> *</span></label>
-                <div class="wrap-input3 validate-input" data-validate="ATR value is required">
-                  <input class="input3" type="number" step="0.000000001" name="atrValue"
-                    placeholder="Market volatility value" autocomplete="off" id="atrValue" />
+                <label for="tradingDays">Trading Days<span class="text-danger"> *</span></label>
+                <div class="wrap-input3 validate-input" data-validate="Trading days in month is required">
+                  <input class="input3" type="number" step="1" name="tradingDays" placeholder="Trading days in month"
+                    autocomplete="off" id="tradingDays" />
                   <span class="focus-input3"></span>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12">
+              <div class="col-sm-6">
                 <label for="rewardRisk">Reward : Risk</label>
                 <div class="wrap-input3">
                   <input class="input3" type="number" step="0.001" name="rewardRisk"
-                    placeholder="Reward against risk default 1.5" autocomplete="off" id="rewardRisk" />
+                    placeholder="Reward times default 1.5" autocomplete="off" id="rewardRisk" />
+                  <span class="focus-input3"></span>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label for="winningRatio">Winning Ratio (%)</label>
+                <div class="wrap-input3">
+                  <input class="input3" type="number" step="0.001" name="winningRatio"
+                    placeholder="Winning ratio default 50%" autocomplete="off" id="winningRatio" />
                   <span class="focus-input3"></span>
                 </div>
               </div>
@@ -106,16 +114,6 @@
             <div class="btn-alignment">
               <div class="container-contact3-form-btn">
                 <button class="contact3-form-btn" id="submit_btn">Submit</button>
-              </div>
-              <div class="radio-wrapper">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="rad_direction" id="long" value="long" checked>
-                  <label class="form-check-label" for="long">Long</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="rad_direction" id="short" value="short">
-                  <label class="form-check-label" for="short">Short</label>
-                </div>
               </div>
             </div>
             <!-- button alignment -->
