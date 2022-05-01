@@ -38,10 +38,29 @@ form.addEventListener("submit", (e) => {
 
     // Showing results
     showResult.innerHTML = `<div class="bg-result">
-      <span class="l_entry">Monthly Profit<span style="margin-left:15px;">=</span></span>
+      <span class="l_entry">Monthly Profit<span style="margin-left:30px;">=</span></span>
       <span class="l_price"><span class="green">$${profit.toFixed(
         2
       )}</span></span><br>
+
+      <span class="l_entry">Risk Per Trade<span style="margin-left:30px;">=</span></span>
+      <span class="l_price"><span class="red">$${riskAmount.toFixed(
+        2
+      )}</span></span><br>
+
+      <span class="l_entry">Monthly Trades<span style="margin-left:17px;">=</span></span>
+      <span class="l_price"><span class="">${monthlyTrades}</span></span><br>
+
+      <span class="l_entry">Winning Trades<span style="margin-left:15px;">=</span></span>
+      <span class="l_price"><span class="">${Math.ceil(
+        winningTrades
+      )}</span></span><br>
+
+      <span class="l_entry">Lossing Trades<span style="margin-left:22px;">=</span></span>
+      <span class="l_price"><span class="">${Math.floor(
+        lossingTrades
+      )}</span></span><br>
+      </div>
     `;
   } else {
     showResult.innerHTML = `<div class="bg-result">
