@@ -17,6 +17,10 @@ form.addEventListener("submit", (e) => {
     riskAmount = 5;
   }
 
+  if (!atrValue) {
+    atrValue = 0;
+  }
+
   if (!rewardRisk) {
     rewardRisk = 1.5;
   }
@@ -63,9 +67,9 @@ form.addEventListener("submit", (e) => {
       <span class="l_price"><span class="green">${direction}</span></span><br>
 
       <span class="l_entry">Position Size<span style="margin-left:47px;">=</span></span>
-      <span class="l_price"><span class="">$${positionAmount.toFixed(
-        2
-      )}</span></span><br>
+      <span class="l_price"><span class="">${tokenQuantity.toFixed(
+        0
+      )} ($${positionAmount.toFixed(2)})</span></span><br>
 
       <span class="l_entry">Stop Loss Price<span style="margin-left:26px;">=</span></span>
       <span class="l_price"><span class="red">$${stopLoss.toFixed(
@@ -119,9 +123,9 @@ form.addEventListener("submit", (e) => {
       <span class="l_price"><span class="red">${direction}</span></span><br>
 
       <span class="l_entry">Position Size<span style="margin-left:47px;">=</span></span>
-      <span class="l_price"><span class="">$${positionAmount.toFixed(
-        2
-      )}</span></span><br>
+      <span class="l_price"><span class="">${tokenQuantity.toFixed(
+        0
+      )} ($${positionAmount.toFixed(2)})</span></span><br>
 
       <span class="l_entry">Stop Loss Price<span style="margin-left:26px;">=</span></span>
       <span class="l_price"><span class="red">$${stopLoss.toFixed(
