@@ -35,13 +35,14 @@ form.addEventListener("submit", (e) => {
     let winningAmount = winningTrades * (riskAmount * rewardRisk);
     let lossingAmount = lossingTrades * riskAmount;
     let profit = winningAmount - lossingAmount;
+    let profitPercentage = (profit / accountSize) * 100;
 
     // Showing results
     showResult.innerHTML = `<div class="bg-result">
       <span class="l_entry">Monthly Profit<span style="margin-left:30px;">=</span></span>
       <span class="l_price"><span class="green">$${profit.toFixed(
         2
-      )}</span></span><br>
+      )} (${profitPercentage.toFixed(2)}%)</span></span><br>
 
       <span class="l_entry">Risk Per Trade<span style="margin-left:30px;">=</span></span>
       <span class="l_price"><span class="red">$${riskAmount.toFixed(
