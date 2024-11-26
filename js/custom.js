@@ -6,49 +6,38 @@ form.addEventListener("submit", (e) => {
 
   let riskAmount = parseFloat(document.querySelector("#riskAmount").value);
   let entryPrice = parseFloat(document.querySelector("#entryPrice").value);
-  let swingPrice = parseFloat(document.querySelector("#swingPrice").value);
-  let atrValue = parseFloat(document.querySelector("#atrValue").value);
+  let slPrice = parseFloat(document.querySelector("#slPrice").value);
   let rewardRisk = parseFloat(document.querySelector("#rewardRisk").value);
   let direction = document
     .querySelector('input[name="rad_direction"]:checked')
     .value.toUpperCase();
 
   if (!riskAmount) {
-    riskAmount = 5;
-  }
-
-  if (!atrValue) {
-    atrValue = 0;
+    riskAmount = 1;
   }
 
   if (!rewardRisk) {
-    rewardRisk = 1.5;
+    rewardRisk = 2;
   }
 
-  if (direction == "LONG" && swingPrice > entryPrice) {
+  if (direction == "LONG" && slPrice > entryPrice) {
     showResult.innerHTML = `<div class="bg-result">
-      <span class="red text-center">Swing price must be less than entry price!</span>
+      <span class="red text-center">Stoploss price must be less than entry price!</span>
     </div>`;
     return;
   }
 
-  if (direction == "SHORT" && swingPrice < entryPrice) {
+  if (direction == "SHORT" && slPrice < entryPrice) {
     showResult.innerHTML = `<div class="bg-result">
-      <span class="red text-center">Swing price must be greater than entry price!</span>
+      <span class="red text-center">Stoploss price must be greater than entry price!</span>
     </div>`;
     return;
   }
 
-  if (
-    riskAmount &&
-    entryPrice &&
-    swingPrice &&
-    (atrValue || atrValue == 0) &&
-    rewardRisk
-  ) {
+  if (riskAmount && entryPrice && slPrice && rewardRisk) {
     if (direction == "LONG") {
       // Formula
-      let stopLoss = swingPrice - atrValue;
+      let stopLoss = slPrice;
       let SLamount = entryPrice - stopLoss;
       let takeProfit = entryPrice + SLamount * rewardRisk;
       let tokenQuantity = riskAmount / SLamount;
@@ -66,20 +55,23 @@ form.addEventListener("submit", (e) => {
       <span class="l_entry">Direction<span style="margin-left:71px;">=</span></span>
       <span class="l_price"><span class="green">${direction}</span></span><br>
 
+      <span class="l_entry">Entry Price<span style="margin-left:60px;">=</span></span>
+      <span class="l_price"><span class="l_padding l_padding_blue">$${entryPrice}</span></span><br>
+
       <span class="l_entry">Position Size<span style="margin-left:47px;">=</span></span>
-      <span class="l_price"><span class="">${tokenQuantity.toFixed(
+      <span class="l_price"><span class="l_padding l_padding_gold">${tokenQuantity.toFixed(
         0
       )} ($${positionAmount.toFixed(2)})</span></span><br>
 
-      <span class="l_entry">Stop Loss Price<span style="margin-left:26px;">=</span></span>
-      <span class="l_price"><span class="red">$${stopLoss.toFixed(
-        5
-      )}</span></span><br>
-
       <span class="l_entry">Take Profit Price<span style="margin-left:18px;">=</span></span>
-      <span class="l_price"><span class="green">$${takeProfit.toFixed(
+      <span class="l_price"><span class="green l_padding l_padding_green">$${takeProfit.toFixed(
         5
-      )}</span></span><br>
+      )}</span></span><span class="green l_padding l_padding_green box_padding">${rewardRisk}x</span><br>
+
+      <span class="l_entry">Stop Loss Price<span style="margin-left:26px;">=</span></span>
+      <span class="l_price"><span class="red l_padding l_padding_red">$${stopLoss.toFixed(
+        5
+      )}</span></span><span class="red l_padding l_padding_red box_padding">-$${riskAmount}</span><br>
 
       <span class="l_entry">Stop Loss Hit<span style="margin-left:44px;">=</span></span>
       <span class="l_price"><span class="red" style="position:relative;">$${percentageDownLossAmount.toFixed(
@@ -104,7 +96,7 @@ form.addEventListener("submit", (e) => {
 
     if (direction == "SHORT") {
       // Formula
-      let stopLoss = swingPrice + atrValue;
+      let stopLoss = slPrice;
       let SLamount = stopLoss - entryPrice;
       let takeProfit = entryPrice - SLamount * rewardRisk;
       let tokenQuantity = riskAmount / SLamount;
@@ -122,20 +114,23 @@ form.addEventListener("submit", (e) => {
       <span class="l_entry">Direction<span style="margin-left:71px;">=</span></span>
       <span class="l_price"><span class="red">${direction}</span></span><br>
 
+      <span class="l_entry">Entry Price<span style="margin-left:60px;">=</span></span>
+      <span class="l_price"><span class="l_padding l_padding_blue">$${entryPrice}</span></span><br>
+
       <span class="l_entry">Position Size<span style="margin-left:47px;">=</span></span>
-      <span class="l_price"><span class="">${tokenQuantity.toFixed(
+      <span class="l_price"><span class="l_padding l_padding_gold">${tokenQuantity.toFixed(
         0
       )} ($${positionAmount.toFixed(2)})</span></span><br>
 
-      <span class="l_entry">Stop Loss Price<span style="margin-left:26px;">=</span></span>
-      <span class="l_price"><span class="red">$${stopLoss.toFixed(
-        5
-      )}</span></span><br>
-
       <span class="l_entry">Take Profit Price<span style="margin-left:18px;">=</span></span>
-      <span class="l_price"><span class="green">$${takeProfit.toFixed(
+      <span class="l_price"><span class="green l_padding l_padding_green">$${takeProfit.toFixed(
         5
-      )}</span></span><br>
+      )}</span></span><span class="green l_padding l_padding_green box_padding">${rewardRisk}x</span><br>
+
+      <span class="l_entry">Stop Loss Price<span style="margin-left:26px;">=</span></span>
+      <span class="l_price"><span class="red l_padding l_padding_red">$${stopLoss.toFixed(
+        5
+      )}</span></span><span class="red l_padding l_padding_red box_padding">-$${riskAmount}</span><br>
 
       <span class="l_entry">Stop Loss Hit<span style="margin-left:44px;">=</span></span>
       <span class="l_price"><span class="red" style="position:relative;">$${percentageUpLossAmount.toFixed(

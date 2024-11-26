@@ -61,7 +61,7 @@
                 <label for="riskAmount">Risk Amount ($)</label>
                 <div class="wrap-input3">
                   <input class="input3" type="number" step="0.001" name="riskAmount"
-                    placeholder="Risk amount default $5" autocomplete="off" id="riskAmount" />
+                    placeholder="Risk amount (default $1)" autocomplete="off" id="riskAmount" />
                   <span class="focus-input3"></span>
                 </div>
               </div>
@@ -76,28 +76,18 @@
             </div>
             <div class="row">
               <div class="col-sm-6">
-                <label for="swingPrice">SL Price ($)<span class="text-danger"> *</span></label>
+                <label for="slPrice">SL Price ($)<span class="text-danger"> *</span></label>
                 <div class="wrap-input3 validate-input" data-validate="Stoploss price is required">
-                  <input class="input3" type="number" step="0.000000001" name="swingPrice"
-                    placeholder="Stoploss price of the trade" autocomplete="off" id="swingPrice" />
+                  <input class="input3" type="number" step="0.000000001" name="slPrice"
+                    placeholder="Stoploss price of the trade" autocomplete="off" id="slPrice" />
                   <span class="focus-input3"></span>
                 </div>
               </div>
               <div class="col-sm-6">
-                <label for="atrValue">ATR Value</label>
-                <div class="wrap-input3" data-validate="ATR value is required">
-                  <input class="input3" type="number" step="0.000000001" name="atrValue"
-                    placeholder="Market volatility value" autocomplete="off" id="atrValue" />
-                  <span class="focus-input3"></span>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
                 <label for="rewardRisk">Reward : Risk</label>
                 <div class="wrap-input3">
                   <input class="input3" type="number" step="0.001" name="rewardRisk"
-                    placeholder="Reward against risk default 1.5" autocomplete="off" id="rewardRisk" />
+                    placeholder="Reward : risk (default 2x)" autocomplete="off" id="rewardRisk" />
                   <span class="focus-input3"></span>
                 </div>
               </div>

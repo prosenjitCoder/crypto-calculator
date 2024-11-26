@@ -36,24 +36,18 @@
   /*==================================================================
     [ Validate ]*/
   var entryPrice = $('.validate-input input[name="entryPrice"]');
-  var swingPrice = $('.validate-input input[name="swingPrice"]');
-  var atrValue = $('.validate-input input[name="atrValue"]');
+  var slPrice = $('.validate-input input[name="slPrice"]');
 
   $(".validate-form").on("submit", function () {
     var check = true;
 
-    if ($(swingPrice).val().trim() == "") {
-      showValidate(swingPrice);
+    if ($(slPrice).val().trim() == "") {
+      showValidate(slPrice);
       check = false;
     }
 
     if ($(entryPrice).val().trim() == "") {
       showValidate(entryPrice);
-      check = false;
-    }
-
-    if ($(atrValue).val().trim() == "") {
-      showValidate(atrValue);
       check = false;
     }
 

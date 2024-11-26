@@ -657,6 +657,32 @@ textarea.input3 {
   color: rgba(0, 0, 0, 0.7);
   font-size: 1rem;
 }
+.l_padding {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 5px;
+}
+.l_padding_green {
+  background: #c6efce;
+  color: #006100;
+}
+.l_padding_red {
+  background: #ffc7ce;
+  color: #cf2d06;
+}
+.l_padding_blue {
+  background: #4472c4;
+  color: #fff;
+}
+.l_padding_gold {
+  background: #f5df4d;
+  color: #000;
+}
+.box_padding {
+  margin-left: 3px;
+}
 .green {
   color: green;
 }
