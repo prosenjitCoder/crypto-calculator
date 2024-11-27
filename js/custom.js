@@ -60,7 +60,7 @@ form.addEventListener("submit", (e) => {
 
       <span class="l_entry">Position Size<span style="margin-left:47px;">=</span></span>
       <span class="l_price"><span class="l_padding l_padding_gold">${tokenQuantity.toFixed(
-        0
+        5
       )} ($${positionAmount.toFixed(2)})</span></span><br>
 
       <span class="l_entry">Take Profit Price<span style="margin-left:18px;">=</span></span>
@@ -119,7 +119,7 @@ form.addEventListener("submit", (e) => {
 
       <span class="l_entry">Position Size<span style="margin-left:47px;">=</span></span>
       <span class="l_price"><span class="l_padding l_padding_gold">${tokenQuantity.toFixed(
-        0
+        5
       )} ($${positionAmount.toFixed(2)})</span></span><br>
 
       <span class="l_entry">Take Profit Price<span style="margin-left:18px;">=</span></span>
